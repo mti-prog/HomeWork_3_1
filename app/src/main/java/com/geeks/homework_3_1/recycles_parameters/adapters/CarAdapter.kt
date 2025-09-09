@@ -1,20 +1,26 @@
-package com.geeks.homework_3_1
+package com.geeks.homework_3_1.recycles_parameters.adapters
 
-import android.text.Layout
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.geeks.homework_3_1.databinding.CarItemBinding
+import com.geeks.homework_3_1.recycles_parameters.data_model.CarModel
+import com.geeks.homework_3_1.recycles_parameters.ext.loadImg
 
-class CarAdapter(var data : ArrayList<CarModel>
+class CarAdapter(
+    var data: ArrayList<CarModel>, val onClick: (model : CarModel) -> Unit
 ) : RecyclerView.Adapter<CarAdapter.CarViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): CarViewHolder {
-        return CarViewHolder(CarItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return CarViewHolder(
+            CarItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(
@@ -26,14 +32,18 @@ class CarAdapter(var data : ArrayList<CarModel>
 
     override fun getItemCount() = data.size
 
-    inner class CarViewHolder(private val binding: CarItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item : CarModel){
+    inner class CarViewHolder(private val binding: CarItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: CarModel) {
             binding.ivCar.loadImg(item.img)
             binding.tvName.text = item.name
             binding.tvPrice.text = item.price
             binding.tvCarType.text = item.carType
             binding.tvSet.text = item.set
             binding.tvSnowflake.text = item.snowflake
+            binding.root.setOnClickListener {
+                onClick(item)
+            }
         }
     }
 }

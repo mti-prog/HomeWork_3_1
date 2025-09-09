@@ -1,4 +1,4 @@
-package com.geeks.homework_3_1
+package com.geeks.homework_3_1.recycles_parameters.ext
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
