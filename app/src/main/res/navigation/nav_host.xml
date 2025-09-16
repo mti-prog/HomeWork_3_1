@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/boardFragment">
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.geeks.homework_3_1.fragments.MainFragment"
+        android:name="com.geeks.homework_3_1.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -16,13 +16,23 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.geeks.homework_3_1.fragments.DetailFragment"
+        android:name="com.geeks.homework_3_1.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="model"
-            app:argType="com.geeks.homework_3_1.recycles_parameters.data_model.CarModel"
+            app:argType="com.geeks.homework_3_1.data.model.CarModel"
             app:nullable="false"/>
 
     </fragment>
+    <fragment
+        android:id="@+id/boardFragment"
+        android:name="com.geeks.homework_3_1.ui.board.BoardFragment"
+        android:label="fragment_board"
+        tools:layout="@layout/fragment_board" >
+        <action
+            android:id="@+id/action_boardFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
 </navigation>

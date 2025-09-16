@@ -1,17 +1,13 @@
-package com.geeks.homework_3_1.fragments
+package com.geeks.homework_3_1.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-
 import androidx.navigation.fragment.findNavController
-import com.geeks.homework_3_1.R
 import com.geeks.homework_3_1.databinding.FragmentMainBinding
-import com.geeks.homework_3_1.keys.Keys
-import com.geeks.homework_3_1.recycles_parameters.adapters.CarAdapter
-import com.geeks.homework_3_1.recycles_parameters.data_model.CarModel
+import com.geeks.homework_3_1.data.model.CarModel
 
 class MainFragment : Fragment() {
     private var data = arrayListOf<CarModel>()

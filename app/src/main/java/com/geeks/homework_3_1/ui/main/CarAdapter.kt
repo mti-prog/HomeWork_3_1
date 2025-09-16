@@ -1,11 +1,11 @@
-package com.geeks.homework_3_1.recycles_parameters.adapters
+package com.geeks.homework_3_1.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.geeks.homework_3_1.databinding.CarItemBinding
-import com.geeks.homework_3_1.recycles_parameters.data_model.CarModel
-import com.geeks.homework_3_1.recycles_parameters.ext.loadImg
+import com.geeks.homework_3_1.data.model.CarModel
+import com.geeks.homework_3_1.ext.loadImg
 
 class CarAdapter(
     var data: ArrayList<CarModel>, val onClick: (model : CarModel) -> Unit

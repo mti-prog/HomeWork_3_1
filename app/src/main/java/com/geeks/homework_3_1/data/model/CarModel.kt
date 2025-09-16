@@ -1,10 +1,8 @@
-package com.geeks.homework_3_1.recycles_parameters.data_model
+package com.geeks.homework_3_1.data.model
 
 import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-import java.io.Serializable
 
 @SuppressLint("ParcelCreator")
 data class CarModel(

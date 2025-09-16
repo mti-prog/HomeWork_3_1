@@ -1,4 +1,4 @@
-package com.geeks.homework_3_1.fragments
+package com.geeks.homework_3_1.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.geeks.homework_3_1.databinding.FragmentDetailBinding
-import com.geeks.homework_3_1.recycles_parameters.data_model.CarModel
-import com.geeks.homework_3_1.recycles_parameters.ext.loadImg
+import com.geeks.homework_3_1.data.model.CarModel
+import com.geeks.homework_3_1.ext.loadImg
 
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding

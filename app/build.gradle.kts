@@ -39,6 +39,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -48,6 +51,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -56,4 +61,15 @@ dependencies {
     // Views/Fragments integration
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
+
+    implementation("com.tbuonomo:dotsindicator:5.1.0")
+
+
+    implementation ("com.airbnb.android:lottie:6.4.0")
+
+    
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+// Use the latest version
+    implementation("com.google.android.material:material:1.12.0")
+// Use the latest version
 }
