@@ -9,6 +9,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.geeks.homework_3_1.R
+import com.geeks.homework_3_1.data.pref.onBoardSharedPreferences
 import com.geeks.homework_3_1.databinding.FragmentBoardBinding
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 
@@ -48,7 +49,8 @@ class BoardFragment : Fragment() {
         val navOptions = NavOptions.Builder()
             .setPopUpTo(R.id.boardFragment, true) // Pop up to fragmentA and include it
             .build()
-
+            val pref = onBoardSharedPreferences(requireContext())
+            pref.entered()
         findNavController().navigate(R.id.action_boardFragment_to_mainFragment, null, navOptions)
     }
 
