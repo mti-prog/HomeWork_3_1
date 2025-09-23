@@ -11,17 +11,17 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_mainFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.geeks.homework_3_1.ui.detail.DetailFragment"
+        android:id="@+id/addItemFragment"
+        android:name="com.geeks.homework_3_1.ui.add_item.AddItemFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_add_item" >
         <argument
             android:name="model"
-            app:argType="com.geeks.homework_3_1.data.model.CarModel"
+            app:argType="com.geeks.homework_3_1.data.model.NoteModel"
             app:nullable="false"/>
 
     </fragment>
@@ -30,6 +30,7 @@
         android:name="com.geeks.homework_3_1.ui.board.BoardFragment"
         android:label="fragment_board"
         tools:layout="@layout/fragment_board" >
+
         <action
             android:id="@+id/action_boardFragment_to_mainFragment"
             app:destination="@id/mainFragment" />

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.add_item.AddItemFragment">
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Write a title"
+        android:paddingStart="16dp"
+        android:textColorHint="@color/dark"
+        android:background="@color/dark_gray"/>
+    <EditText
+        android:id="@+id/et_text"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Write text"
+        android:paddingStart="16dp"
+        android:textColorHint="@color/dark"
+        android:background="@color/gray"
+        android:layout_marginVertical="16dp"/>
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:backgroundTint="@color/black" />
+</LinearLayout>

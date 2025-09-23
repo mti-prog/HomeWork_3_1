@@ -4,11 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.geeks.homework_3_1.R
-import com.geeks.homework_3_1.data.model.CarModel
 import com.geeks.homework_3_1.databinding.BoardItemBinding
-import com.geeks.homework_3_1.ext.loadGif
-import com.geeks.homework_3_1.ext.loadImg
 import com.geeks.homework_3_1.ui.board.BoardAdapter.BoardViewHolder
 
 class BoardAdapter(var board: ArrayList<BoardModel>, val onStart: () -> Unit, val onSkip:()-> Unit) : RecyclerView.Adapter<BoardViewHolder>() {

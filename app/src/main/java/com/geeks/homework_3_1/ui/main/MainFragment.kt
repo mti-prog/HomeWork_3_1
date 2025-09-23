@@ -1,17 +1,21 @@
 package com.geeks.homework_3_1.ui.main
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.geeks.homework_3_1.App
+import com.geeks.homework_3_1.R
+import com.geeks.homework_3_1.data.model.NoteModel
 import com.geeks.homework_3_1.databinding.FragmentMainBinding
-import com.geeks.homework_3_1.data.model.CarModel
+
 
 class MainFragment : Fragment() {
-    private var data = arrayListOf<CarModel>()
-    private lateinit var carAdapter : CarAdapter
+    private val noteAdapter = NoteAdapter()
     private lateinit var binding: FragmentMainBinding
 
 
@@ -27,62 +31,27 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+        setupListener()
         loadData()
+
     }
 
     private fun loadData() {
-        carAdapter = CarAdapter(data, ::onClick)
-        binding.rvCar.adapter = carAdapter
+        val list : List<NoteModel> =  App.db.noteDao().getAllItems()
+        noteAdapter.addList(list)
     }
-    fun onClick(model : CarModel) {
-        val action = MainFragmentDirections.actionMainFragmentToDetailFragment(model)
-        findNavController().navigate(action)
+    fun setupListener() {
+        binding.fabAdd.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_addItemFragment)
+        }
     }
 
     fun init() {
-        data = arrayListOf<CarModel>(
-            CarModel(
-                "BMW 5S",
-                "$76",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUvspjWAN2byVrrvOr5p4fexsN9vzG8JTsbQ&s",
-                "Luxury",
-                "Transition",
-                "No"
-            ),
-            CarModel(
-                "BMW 5S",
-                "$76",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUvspjWAN2byVrrvOr5p4fexsN9vzG8JTsbQ&s",
-                "Luxury",
-                "Transition",
-                "No"
-            ),
-            CarModel(
-                "BMW 5S",
-                "$76",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUvspjWAN2byVrrvOr5p4fexsN9vzG8JTsbQ&s",
-                "Luxury",
-                "Transition",
-                "No"
-            ),
-            CarModel(
-                "BMW 5S",
-                "$76",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUvspjWAN2byVrrvOr5p4fexsN9vzG8JTsbQ&s",
-                "Luxury",
-                "Transition",
-                "No"
-            ),
-            CarModel(
-                "BMW 5S",
-                "$76",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUvspjWAN2byVrrvOr5p4fexsN9vzG8JTsbQ&s",
-                "Luxury",
-                "Transition",
-                "No"
-            )
-        )
+        binding.rvCar.adapter = noteAdapter
     }
+
+
+
 
 
 }

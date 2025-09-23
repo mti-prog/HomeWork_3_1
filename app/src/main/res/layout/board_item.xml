@@ -64,10 +64,11 @@
         android:id="@+id/tv_des"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:text="Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно."
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_start"
+        tools:text="Создавайте заметки в два клика! Записывайте мысли, идеи и важные задачи мгновенно."
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="@id/cv_board"
         app:layout_constraintEnd_toEndOf="@id/cv_board"/>
