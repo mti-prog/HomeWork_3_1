@@ -8,8 +8,7 @@ import com.geeks.homework_3_1.data.model.NoteModel
 
 @Database(
     entities = [NoteModel::class],
-    version = 1,
-    exportSchema = false
+    version = 2
 )
 abstract class AppDataBase : RoomDatabase() {
 
@@ -30,5 +29,7 @@ abstract class AppDataBase : RoomDatabase() {
                 instance
             }
         }
+
     }
+
 }

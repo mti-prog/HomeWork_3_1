@@ -13,7 +13,6 @@ interface NoteDao {
     @Delete
      fun deleteItem(item: NoteModel)
 
-    // Получить весь список
     @Query("SELECT * FROM notes_list")
      fun getAllItems(): List<NoteModel>
 }

@@ -13,6 +13,8 @@ import com.geeks.homework_3_1.R
 import com.geeks.homework_3_1.data.model.NoteModel
 import com.geeks.homework_3_1.databinding.FragmentAddItemBinding
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Locale
 
@@ -48,9 +50,10 @@ class AddItemFragment : Fragment() {
     }
 
     fun getCurrentTime(): String {
-        val calendar = Calendar.getInstance()
-        val dateFormat = SimpleDateFormat("dd MMM HH:mm", Locale.getDefault())
-        return dateFormat.format(calendar.time)
+        val currentDateTime = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("dd MMM HH:mm", Locale.getDefault())
+        val formattedDateTime = currentDateTime.format(formatter)
+        return formattedDateTime
     }
 
 }
