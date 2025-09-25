@@ -13,6 +13,6 @@ interface NoteDao {
     @Delete
      fun deleteItem(item: NoteModel)
 
-    @Query("SELECT * FROM notes_list")
+    @Query("SELECT * FROM notes_list ORDER BY id DESC")
      fun getAllItems(): List<NoteModel>
 }

@@ -15,7 +15,9 @@ class NoteAdapter() : RecyclerView.Adapter<NoteAdapter.CarViewHolder>() {
 
     fun addList(list: List<NoteModel>){
         data.clear()
-        data.addAll(list) }
+        data.addAll(list)
+
+    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -45,22 +47,26 @@ class NoteAdapter() : RecyclerView.Adapter<NoteAdapter.CarViewHolder>() {
             binding.tvText.text = item.text
             binding.tvDate.text = item.date
             binding.root.setOnLongClickListener {
-                val builder = AlertDialog.Builder(itemView.context)
-                builder.setTitle("Delete Item")
-                builder.setMessage("Are you sure you want to delete this item?")
-                builder.setPositiveButton("Delete") { dialog, which ->
-                    App.db.noteDao().deleteItem(NoteModel(item.id, item.title, item.text, item.date))
-                    data.removeAt(bindingAdapterPosition)
-                    notifyItemRemoved(bindingAdapterPosition)
-                    dialog.dismiss()
-                }
-                builder.setNegativeButton("Cancel") { dialog, which ->
-                    dialog.dismiss()
-                }
-                val dialog: AlertDialog = builder.create()
-                dialog.show()
+                onLongClick(item)
                 true
             }
+        }
+
+        fun onLongClick(item : NoteModel){
+            val builder = AlertDialog.Builder(itemView.context)
+            builder.setTitle("Delete Item")
+            builder.setMessage("Are you sure you want to delete this item?")
+            builder.setPositiveButton("Delete") { dialog, which ->
+                App.db.noteDao().deleteItem(NoteModel(item.id, item.title, item.text, item.date))
+                data.removeAt(bindingAdapterPosition)
+                notifyItemRemoved(bindingAdapterPosition)
+                dialog.dismiss()
+            }
+            builder.setNegativeButton("Cancel") { dialog, which ->
+                dialog.dismiss()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
     }
 }
